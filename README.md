@@ -90,4 +90,4 @@ DIVIDE([Approved Claims], [Total Claims], 0)
 
 ## Dashboard Preview
 
-![Insurance Claims KPI & Risk Dashboard](dashboard/screenshots/insurance_dashboard.png)
+![Insurance Claims KPI & Risk Dashboard](dashboard/screenshots/Insurance_dashboard.png)
