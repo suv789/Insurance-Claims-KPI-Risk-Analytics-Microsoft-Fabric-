@@ -58,6 +58,9 @@ The reporting layer operates on an optimized dimensional Star Schema:
 * `dbo.gold_dim_date[date]` (1) ───< `dbo.gold_fct_claims[claim_date]` (*)
 
 ---
+## Dashboard Preview
+
+![Insurance Claims KPI & Risk Dashboard](dashboard/screenshots/Insurance_dashboard.png)
 
 ## Core DAX Business Logic
 
@@ -88,6 +91,3 @@ COALESCE(
 Approval Rate = 
 DIVIDE([Approved Claims], [Total Claims], 0)
 
-## Dashboard Preview
-
-![Insurance Claims KPI & Risk Dashboard](dashboard/screenshots/Insurance_dashboard.png)
