@@ -8,29 +8,31 @@ This platform ingests raw customer, policy, and claims transactions from Azure B
 
 ## Architecture Diagram
 
+```text
 [Azure Blob Storage (CSV)]
-│
-▼
+           │
+           ▼
 [Fabric Data Factory Pipeline: pl_insurance_data_ingestion]
-│
-▼
+           │
+           ▼
 [Lakehouse Raw: lh_insurance_raw (Bronze Delta)]
-│
-▼ (nb_bronze_to_silver_insurance - PySpark)
-[Lakehouse Silver: lh_insurance_silver (Cleaned / Typed / Standardized)]
-│
-▼ (nb_silver_to_gold_insurance - PySpark Dimensional Model)
+           │
+           ▼ (nb_bronze_to_silver_insurance - PySpark)
+[Lakehouse Silver: lh_insurance_silver (Cleaned / Standardized)]
+           │
+           ▼ (nb_silver_to_gold_insurance - PySpark)
 [Lakehouse Gold: lh_insurance_gold (Star Schema Delta Tables)]
-├── dbo.gold_dim_customer
-├── dbo.gold_dim_policy
-├── dbo.gold_dim_date
-└── dbo.gold_fct_claims
-│
-▼
+    ├── dbo.gold_dim_customer
+    ├── dbo.gold_dim_policy
+    ├── dbo.gold_dim_date
+    └── dbo.gold_fct_claims
+           │
+           ▼
 [Semantic Model: insurance_kpis_analytics (Direct Lake on OneLake)]
-│
-▼
+           │
+           ▼
 [Power BI Report: insurance_analytics_report]
+```
 
 ---
 
